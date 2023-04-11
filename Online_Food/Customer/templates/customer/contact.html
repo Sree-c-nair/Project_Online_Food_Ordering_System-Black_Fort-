@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-color:#F0F8FF,font-family:'Times New Roman', Georgia, serif;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{%static 'images/bf.png' %}" style="width:45px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'food' %}">Menu <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+    <a href="{% url 'logout' %}" class="w3-bar-item w3-button">Logout</a>
+
+</nav>
+
+<div class="container">
+    <h1>Connect With Us</h1><br>
+    <!--    <p>We would like to respond to your queries and help you succeed.<br>-->
+    <!--        Feel free to get in touch with us.</p>-->
+    <div class="contact-box">
+        <div class="contact-left">
+            <h3> Sent Your Request</h3><br>
+            <form>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label> Name </label>
+                        <input type="text" placeholder="John">
+                    </div>
+                    <div class="input-group">
+                        <label> Phone </label>
+                        <input type="text" placeholder="+91 8977666455">
+                    </div>
+                </div>
+                <br>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label> Email </label>
+                        <input type="email" placeholder="John@gmail.com">
+                    </div>
+                    <div class="input-group">
+                        <label> Subject </label>
+                        <input type="text" placeholder="Food Demo">
+                    </div>
+                </div>
+                <label> Message </label>
+                <textarea row="5" placeholder="Your Message"></textarea>
+
+                <button type="submit" style="background: #1c00b5;width: 100px;border: none;outline: none;color: #fff;height: 35px;border-radius: 30px;margin-top:20px;
+   box-shadow: 0px 5px 15px 0px rgba(28, 0, 181, 0.3);">SEND
+                </button>
+            </form>
+
+        </div>
+        <div class="contact-right">
+            <h3> Reach Us</h3> <br>
+            <table>
+                <tr>
+                    <td>Email</td>
+                    <td>blackfort@resto.com</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>+91 00553123-2323</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>Black Fort Cafe And Grill Resto,<br> 42nd Living St,<br> 43043 Thiruvalla</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<center>
+    <footer class="footer">
+        <div class="container">
+            <p>@ copyright {% now "Y" %} by <a href="{% url 'home'%}">Black Fort Cafe and Grill Resto</a></p>
+        </div>
+    </footer>
+</center>
+</body>
+</html>

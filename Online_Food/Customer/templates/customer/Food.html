@@ -1,0 +1,70 @@
+{% extends 'customer/main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/7515bfdbf7.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <title>food</title>
+</head>
+{% block content %}
+<body style="background-color:#F0F8FF">
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-sm-12 text-center">
+        <h1>What's on Our Food Menu?</h1>
+    </div>
+</div>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-sm-12 text-center">
+        <form method="GET" action="{% url 'menu-search' %}">
+            <div class="md-form mt-0 active-cyan-2">
+                <input class="form-control" name="q" type="text" placeholder="Search our Menu" aria-label="search"
+                       value="{{request.GET.q}}">
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container-fluid mt-2">
+    <div class="row">
+
+        <div class="col-lg-3 mx-auto">
+            <div class="list-group">
+
+                <a href="{% url 'food'%}" class="list-group-item list-group-item-action btn btn-outline-success">All
+                    Products</a>
+
+                {% for category in categories %}
+                <a href="{% url 'food'%}?category={{category.id}}"
+                   class="list-group-item list-group-item-action btn btn-outline-success ">{{category.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div id='fooditem' class="col-lg-9 mx-auto">
+            <div class="row mx-auto">
+                {% for fooditem in fooditems %}
+                <div class="card mx-auto mb-3" id={{fooditem.id}} style="width: 18rem;">
+                    <img class="thumbnail" src="{{ fooditem.imageURL }}">
+                    <div class="box-element fooditem">
+                        <h6><strong>{{ fooditem.name }}</strong></h6>
+                        <hr>
+                        <button data-fooditem="{{ fooditem.id }}" data-action="add"
+                                class="btn btn-outline-secondary add-btn update-cart">Add to Cart
+                        </button>
+                        <a class="btn btn-outline-success" href="{% url 'view-food' fooditem.id %}">View</a>
+                        <h4 style="display: inline-block; float:right;"><strong>Rs {{ fooditem.price|floatformat:2 }}</strong></h4>
+<hr>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock content %}
+</html>

@@ -1,0 +1,57 @@
+{% extends 'restaurant/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block content%}
+<body style="background-color:#F0F8FF" >
+<div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="card col-md-5 mr-3">
+                <h4 class="text-center pt-2">Today's Total Revenue</h4>
+                <h1 class="text-center" style="color: green;">${{ total_revenue }}</h1>
+            </div>
+
+            <div class="card col-md-5 mr-3">
+                <h4 class="text-center pt-2">Today's Total Orders</h4>
+                <h1 class="text-center" style="color: #ad0003;">{{ total_orders }}</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 mt-5">
+                <table class="table table-hover table-striped">
+                    <thead>
+
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Price</th>
+
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+
+                            <th scope="row">{{ order.id }}</th>
+                            <td>{{ order.get_cart_total }}</td>
+
+
+
+
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>

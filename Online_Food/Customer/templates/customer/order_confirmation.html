@@ -1,0 +1,24 @@
+{% extends 'customer/main.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block content %}
+<body style="background-color:#F0F8FF">
+
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-5 col-sm-12 p-4 text-center">
+            <h1>Order Submitted!</h1>
+            <p>You should receive a confirmation email soon.</p>
+            <a href="{% url 'home' %}">Go to the homepage</a>
+        </div>
+    </div>
+</div>
+</body>
+<br>>
+<br>
+{% endblock %}
+</html>

@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7515bfdbf7.js" crossorigin="anonymous"></script>
+
+    <title>Login</title>
+</head>
+
+<body style="background-color:#F0F8FF">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{%static 'images/bf.png' %}" style="width:75px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <br>
+    </div>
+
+
+    <a href="{% url 'register' %}" class=" text-dark pull-right bg-light">SignUp</a>
+</nav>
+<br>
+<center>
+    <form method='POST'>
+        <h1>Login</h1>
+        {% csrf_token %}
+        <div class="enter">
+            <input type="text" id='username' name='username' placeholder='Create a username' Required>
+
+            <input type="password" id='pass1' name='pass1' placeholder='Enter Your Password' Required>
+        </div>
+
+        <div class="forgot"><a href="#">Forgot password?</a></div>
+        <input type="submit" class="save" value='Login'>
+        <p class='sign'>Don't have an account?<a href="{% url 'register'  %}">Signup</a></p>
+        <div class="or">
+            <hr class='hr1'>
+            Or
+            <hr class='hr1'>
+        </div>
+        <br>
+        <button type="submit" class="face"><i class="fa-brands fa-facebook"></i>Login with Facebook</button>
+        <br><br>
+        <button type="submit" class="google"><i class="fa-brands fa-google"></i> Login with Google</button>
+    </form>
+</center>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Footer -->
+<footer class="page-footer font-small light bg-light ">
+    <center><h3>Connect With Us</h3></center>
+    <center>
+        <table>
+            <tr>
+                <td>Email</td>
+                <td>blackfort@resto.com</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>+91 00553123-2323</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>Black Fort Cafe And Grill Resto,<br> 42nd Living St,<br> 43043 Thiruvalla</td>
+            </tr>
+        </table>
+    </center>
+    <hr>
+    <center>
+        <h3>Social Media links</h3>
+
+        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <hr>
+
+        <p>Copy Right @2023 <a href="{% url 'home' %}">Black Fort Resto</a></p>
+        <a class="ml-3" href="{% url 'dashboard' %}">Restaurant Login</a>
+
+    </center>
+</footer>
+</body>
+</html>
